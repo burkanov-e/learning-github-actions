@@ -19,6 +19,7 @@ jobs:
         run: npm test
 
   deploy:
+    needs: test ### It will be depended on the job test | can provide a list of jobs
     runs-on: ubuntu-latest
     steps:
       - name: Get code
