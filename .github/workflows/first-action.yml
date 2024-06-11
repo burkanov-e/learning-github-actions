@@ -1,0 +1,13 @@
+name: First Workflow ## Worflow Name, Multiple workflows can be added using mulptiple yaml files in worflows folder
+on: workflow_dispatch # workflow_dispatch - manually trigger workflow. on --> define event where workflow should be triggered
+jobs:
+  first-job: # Jobs can be run in parallel (default) or sequential
+    runs-on: ubuntu-latest # define an environment to run the job (Ubuntu Linux|Windows|Mac)
+    steps: # steps will take list | executed in order | can execute shell script or an Action
+      - name: Print greeting
+        run: echo "Hello World"
+      - name: Print goodbye
+        run: echo "Done. Bye World"
+  
+    
+  
