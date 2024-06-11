@@ -1,0 +1,19 @@
+name: Test React Project
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code ### Download the code (Step 1)
+        uses: actions/checkout@v4 ## in order to use action --> uses 'uses' keyword
+        # with: ---> can be added to accomplish specific needs
+      - name: Install NodeJS ### (Step 2)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependnecies ### (Step 3)
+        run: npm ci
+
+      - name: Run test ### (Step 4)
+        run: npm test
