@@ -1,0 +1,27 @@
+name: Detailed Event Practice
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Code
+        uses: actions/checkout@v4
+
+      - name: Install dependnecies
+        run: npm ci
+
+      - name: Running lint
+        run: npm run lint
+
+      - name: Running test
+        run: npm test
+
+      - name: Build the code
+        run: npm run build
+
+      - name: Deploy the code
+        run: echo "Deploying"
