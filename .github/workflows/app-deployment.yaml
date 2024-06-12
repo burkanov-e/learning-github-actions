@@ -1,0 +1,20 @@
+name: App Practice Project
+on: push
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the Code
+        uses: actions/checkout@v4
+
+      - name: Install dependnecies
+        run: npm ci
+
+      - name: Running lint
+        run: npm lint
+
+      - name: Running test
+        run: npm test
+
+      - name: Deploying the code
+        run: echo "Deploying"

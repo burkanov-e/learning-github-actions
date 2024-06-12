@@ -1,40 +1,40 @@
-name: Deploy React Project
-on: [push, workflow_dispatch]
-jobs:
-  test:
-    runs-on: ubuntu-latest ## Every Job has it's own runner
-    steps:
-      - name: Get code ### Download the code (Step 1)
-        uses: actions/checkout@v4 ## in order to use action --> uses 'uses' keyword
-        # with: ---> can be added to accomplish specific needs
-      - name: Install NodeJS ### (Step 2)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+# name: Deploy React Project
+# on: [push, workflow_dispatch]
+# jobs:
+#   test:
+#     runs-on: ubuntu-latest ## Every Job has it's own runner
+#     steps:
+#       - name: Get code ### Download the code (Step 1)
+#         uses: actions/checkout@v4 ## in order to use action --> uses 'uses' keyword
+#         # with: ---> can be added to accomplish specific needs
+#       - name: Install NodeJS ### (Step 2)
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 18
 
-      - name: Install dependnecies ### (Step 3)
-        run: npm ci
+#       - name: Install dependnecies ### (Step 3)
+#         run: npm ci
 
-      - name: Run test ### (Step 4)
-        run: npm test
+#       - name: Run test ### (Step 4)
+#         run: npm test
 
-  deploy:
-    needs: test ### It will be depended on the job test | can provide a list of jobs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get code
-        uses: actions/checkout@v4
+#   deploy:
+#     needs: test ### It will be depended on the job test | can provide a list of jobs
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Get code
+#         uses: actions/checkout@v4
 
-      - name: Install NodeJS
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+#       - name: Install NodeJS
+#         uses: actions/setup-node@v4
+#         with:
+#           node-version: 18
 
-      - name: Install dependnecies
-        run: npm ci
+#       - name: Install dependnecies
+#         run: npm ci
 
-      - name: Build project
-        run: npm run build
+#       - name: Build project
+#         run: npm run build
 
-      - name: Deploy
-        run: echo "Deploying"
+#       - name: Deploy
+#         run: echo "Deploying"
