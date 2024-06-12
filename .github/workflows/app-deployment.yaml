@@ -19,6 +19,10 @@ jobs:
     steps:
       - name: Checkout the Code
         uses: actions/checkout@v4
+
+      - name: Install dependnecies
+        run: npm ci
+
       - name: Running test
         run: npm test
 
@@ -28,6 +32,9 @@ jobs:
     steps:
       - name: Checkout the Code
         uses: actions/checkout@v4
+
+      - name: Install dependnecies
+        run: npm ci
 
       - name: Build the code
         run: npm run build
