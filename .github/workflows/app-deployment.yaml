@@ -26,6 +26,9 @@ jobs:
       - name: Running test
         run: npm test
 
+      - name: This is a test
+        run: echo 'This is a test'
+
   Build:
     runs-on: ubuntu-latest
     needs: Test
